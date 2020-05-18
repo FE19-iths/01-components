@@ -39,3 +39,7 @@ button {
 button.selected {
     border-width: 3px;
 }
+
+.hidden {
+    display: none;
+}

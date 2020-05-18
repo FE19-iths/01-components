@@ -6,11 +6,20 @@ function App() {
     const [mode, setMode] = useState('light');
     const [newsletter, setNewsletter] = useState(false);
     const [count, setCount] = useState(1337);
+    const [show, setShow] = useState(true)
 
     // Skapa funktioner för att hantera events, eller använd arrow functions i JSX. Är det mycket som ska göras vid en händelse så blir det ofta mer lättläst att skapa en funktion.
     const handleClickLight = () => {
         setMode('light');
         console.log('handleClickLight körs');
+    }
+    const toggleShow = () => {
+        if( show ) {
+            setShow(false);
+        } else {
+            setShow(true);
+        }
+        // Extra utmaning! Koden ovan går att göra mycket enklare...
     }
 
 
@@ -50,9 +59,21 @@ function App() {
                     <button onClick={() => setCount(count - 1)}> Minska </button>
                 </p>
             </section>
+
+            <section>
+                <p>
+                    <button onClick={toggleShow}> {show ? 'Dölj' : 'Visa'} </button>
+                    <span className={!show ? 'hidden' : ''}> Hallå! </span>
+                </p>
+            </section>
             </main>
         </div>
     );
 }
 
 export default App;
+
+
+
+
+//
