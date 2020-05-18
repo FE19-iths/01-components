@@ -2,19 +2,22 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+    // Skapa state-variabler för allt som komponenten behöver "komma ihåg"
     const [mode, setMode] = useState('light');
     const [newsletter, setNewsletter] = useState(false);
     const [count, setCount] = useState(1337);
 
+    // Skapa funktioner för att hantera events, eller använd arrow functions i JSX. Är det mycket som ska göras vid en händelse så blir det ofta mer lättläst att skapa en funktion.
     const handleClickLight = () => {
         setMode('light');
         console.log('handleClickLight körs');
     }
 
 
-    // console.log('App körs');
+    // Returnera JSX - använd state-variabler för att bestämma vad som ska visas
     return (
         <div className={'App ' + mode}>
+            {/* Kommentarer i JSX måste vara inuti en "mustasch" */}
             <header className="App-header">
                 <h1>My first React app!</h1>
             </header>
@@ -24,6 +27,7 @@ function App() {
                 Choose your preferred mode
                 </p>
                 <p>
+                    {/* två sätt att göra samma sak på: förberedd funktion eller arrow function */}
                     <button onClick={handleClickLight}> Light </button>
                     <button onClick={() => setMode('dark')}> Dark </button>
                 </p>
