@@ -4,6 +4,7 @@ import './App.css';
 function App() {
     const [mode, setMode] = useState('light');
     const [newsletter, setNewsletter] = useState(false);
+    const [count, setCount] = useState(1337);
 
     const handleClickLight = () => {
         setMode('light');
@@ -11,7 +12,7 @@ function App() {
     }
 
 
-    console.log('App körs');
+    // console.log('App körs');
     return (
         <div className={'App ' + mode}>
             <header className="App-header">
@@ -35,6 +36,14 @@ function App() {
                         onClick={() => setNewsletter(true)}>Ja</button>
                     <button className={!newsletter ? 'selected' : ''}
                         onClick={() => setNewsletter(false)}>Nej</button>
+                </p>
+            </section>
+
+            <section>
+                <p>
+                    Värdet är: {count}
+                    <button onClick={() => setCount(count + 1)}> Öka </button>
+                    <button onClick={() => setCount(count - 1)}> Minska </button>
                 </p>
             </section>
             </main>
